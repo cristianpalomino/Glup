@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C7EBEB">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Elije Tipo\nde\nPrenda"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_blanco"
+            android:id="@+id/title" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prenda"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/color_blanco"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:id="@+id/prendaa" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blanco"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:text="Prenda"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/prendab" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blanco"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:text="Prenda C"
+                android:id="@+id/prendac" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blanco"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:text="Salir"
+                android:id="@+id/button"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:visibility="invisible" />
+
+            <TextView
+               android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Usuario"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/color_letra"
+                android:id="@+id/user" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blanco"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:text="Salir"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/button2"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:visibility="invisible" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blanco"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                android:text="Salir"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/salir"
+                android:layout_gravity="right|top"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Glup"
+    android:background="#C7EBEB"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/ic_launcher_web"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:hint="User"
+                android:ems="10"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/name"
+                android:text="SFALABELLA"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittext_rounded" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:text="123456"
+                android:hint="Password"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/password"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittext_rounded" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@color/color_blanco"
+                android:id="@+id/login"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/holo_flat_button_azul_claro"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

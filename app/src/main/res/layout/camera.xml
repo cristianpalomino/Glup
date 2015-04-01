@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:id="@+id/preview">
+
+    <fragment
+        android:id="@+id/camera_fragment"
+        android:name="capr.com.fragments.CameraFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/plantilla"
+        android:src="@drawable/h_a_polo_copa_1_slim_a"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:focusable="false"
+        android:layout_gravity="left|center_vertical" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_blanco"
+        android:background="@drawable/holo_flat_button_azul_claro"
+        android:text="Tomar"
+        android:id="@+id/take"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>
