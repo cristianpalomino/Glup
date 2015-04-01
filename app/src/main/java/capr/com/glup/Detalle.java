@@ -39,6 +39,7 @@ import capr.com.beans.Imagen_DTO;
 import capr.com.beans.Plantilla_DTO;
 import capr.com.beans.Prenda_DTO;
 import capr.com.beans.Tipo_DTO;
+import capr.com.dialog.Dialog_Cropper;
 import capr.com.dialog.Dialog_Foto;
 import capr.com.glup.v2.A_Camara;
 import capr.com.interfaces.Interface_Upload_Image;
@@ -211,7 +212,7 @@ public class Detalle extends ActionBarActivity implements Glup_Application.OnTak
 
                     @Override
                     public void onValidationFailed(View failedView, Rule<?> failedRule) {
-                        ((EditText)failedView).setError(failedRule.getFailureMessage());
+                        ((EditText) failedView).setError(failedRule.getFailureMessage());
                     }
                 });
                 validator.validate();
@@ -316,23 +317,17 @@ public class Detalle extends ActionBarActivity implements Glup_Application.OnTak
         });
     }
 
-
-    /*
-    Camera - UTIL
-     */
-    private boolean isCamera() {
-        return !getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
-    }
-
     @Override
     public void OnTake(File file, String uri) {
         ImageView imageview = ((Glup_Application) getApplication()).getCurrentImageView();
-        if(imageview.equals(imagea)){
-            Log.e("LOCAL","A");
-            ((Glup_Application) getApplication()).getCurrent_uri().set(0,uri);
-        }else{
-            Log.e("LOCAL","B");
-            ((Glup_Application) getApplication()).getCurrent_uri().set(1,uri);
+        if (imageview.equals(imagea)) {
+            Log.e("ONTAKE",uri + "  - A"+ " - " + file.getTotalSpace());
+            Picasso.with(this).load(new File(uri)).into(preview_a);
+            ((Glup_Application) getApplication()).getCurrent_uri().set(0, uri);
+        } else {
+            Log.e("ONTAKE",uri + "  - B" + " - " + file.getTotalSpace());
+            Picasso.with(this).load(new File(uri)).into(preview_b);
+            ((Glup_Application) getApplication()).getCurrent_uri().set(1, uri);
         }
     }
 

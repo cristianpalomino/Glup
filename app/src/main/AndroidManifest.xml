@@ -33,6 +33,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".Cropper"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".Modelo"
             android:label="@string/title_activity_tipo"

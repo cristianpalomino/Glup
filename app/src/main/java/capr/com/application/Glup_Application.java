@@ -1,6 +1,7 @@
 package capr.com.application;
 
 import android.app.Application;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.widget.ImageView;
 
@@ -20,12 +21,14 @@ import capr.com.beans.Tipo_DTO;
  */
 public class Glup_Application extends Application {
 
+    private Bitmap current_bitmap;
     private ArrayList<Tipo_DTO> tipos;
     private Tipo_DTO tipo_dto;
     private Plantilla_DTO plantilla_dto;
     private ImageView currentImageView;
     private ImageView previewCurrent;
     private ArrayList<String> current_uri = new ArrayList<>();
+    private int orientation;
 
     public OnTake onTake;
 
@@ -48,6 +51,22 @@ public class Glup_Application extends Application {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).
                                               defaultDisplayImageOptions(displayimageOptions).build();
         ImageLoader.getInstance().init(config);
+    }
+
+    public Bitmap getCurrent_bitmap() {
+        return current_bitmap;
+    }
+
+    public void setCurrent_bitmap(Bitmap current_bitmap) {
+        this.current_bitmap = current_bitmap;
+    }
+
+    public void setOrientation(int orientation) {
+        this.orientation = orientation;
+    }
+
+    public int getOrientation() {
+        return orientation;
     }
 
     public ArrayList<String> getCurrent_uri() {

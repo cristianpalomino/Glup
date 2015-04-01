@@ -36,16 +36,16 @@ public class Modelo extends ActionBarActivity implements AdapterView.OnItemClick
         getSupportActionBar().hide();
         setContentView(R.layout.tipo);
 
-        tipos = ((Glup_Application)getApplication()).getTipos();
+        tipos = ((Glup_Application) getApplication()).getTipos();
         modelos = (ListView) findViewById(R.id.modelos);
-        title = (TextView)findViewById(R.id.title);
-        back = (Button)findViewById(R.id.back);
+        title = (TextView) findViewById(R.id.title);
+        back = (Button) findViewById(R.id.back);
 
         title.setTypeface(Util_Fonts.setPNASemiBold(this));
         back.setTypeface(Util_Fonts.setPNASemiBold(this));
         title.setText("Modelos");
 
-        adapter = new Adapter_Modelo(Modelo.this,tipos);
+        adapter = new Adapter_Modelo(Modelo.this, tipos);
         modelos.setAdapter(adapter);
 
         modelos.setOnItemClickListener(this);
@@ -77,7 +77,7 @@ public class Modelo extends ActionBarActivity implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Tipo_DTO tipo_dto = (Tipo_DTO) parent.getItemAtPosition(position);
-        ((Glup_Application)getApplication()).setTipo_dto(tipo_dto);
-        startActivity(new Intent(Modelo.this,Detalle.class));
+        ((Glup_Application) getApplication()).setTipo_dto(tipo_dto);
+        startActivity(new Intent(Modelo.this, Detalle.class));
     }
 }

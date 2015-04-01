@@ -46,7 +46,7 @@ public class CameraFragment extends Fragment implements SurfaceHolder.Callback, 
 
         if (!(activity instanceof CameraCallBack)) {
             throw new IllegalArgumentException(
-                "Activity has to implement CameraCallBack interface"
+                    "Activity has to implement CameraCallBack interface"
             );
         }
 
@@ -173,7 +173,7 @@ public class CameraFragment extends Fragment implements SurfaceHolder.Callback, 
 
         camera.setParameters(parameters);
 
-        Log.e("CAMARA",bestPreviewSize.width + " - " + bestPreviewSize.height);
+        Log.e("CAMARA PREVIE",bestPreviewSize.width + " - " + bestPreviewSize.height);
     }
 
     private Size determineBestPreviewSize(Camera.Parameters parameters) {
