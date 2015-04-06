@@ -37,7 +37,7 @@ import capr.com.views.Glup_Plantilla;
 /**
  * Created by usuario on 28/03/15.
  */
-public class A_Camara extends ActionBarActivity implements CameraCallBack, Dialog_Cropper.OnCroppedImage {
+public class A_Camara extends ActionBarActivity implements CameraCallBack {
 
     private static final int PICTURE_QUALITY = 100;
     private Glup_Plantilla plantilla;
@@ -90,15 +90,18 @@ public class A_Camara extends ActionBarActivity implements CameraCallBack, Dialo
         Bitmap resizedBitmap = Bitmap.createBitmap(btm, 0, 0, btm.getWidth(), btm.getHeight());
         Bitmap bitmap = RotateBitmap(resizedBitmap, 90);
 
+        ((Glup_Application)getApplication()).setCurrent_bitmap(bitmap);
+        Intent intent = new Intent(A_Camara.this, Cropper.class);
+        startActivity(intent);
 
-        //((Glup_Application)getApplication()).setCurrent_bitmap(bitmap);
 
-        //Intent intent = new Intent(A_Camara.this, Cropper.class);
-        //startActivity(intent);
+        A_Camara.this.finish();
 
+        /*
         Dialog_Cropper dialog_cropper = new Dialog_Cropper(A_Camara.this,bitmap);
         dialog_cropper.setOnCroppedImage(A_Camara.this);
         dialog_cropper.show();
+        */
     }
 
     public static Bitmap RotateBitmap(Bitmap source, float angle) {
@@ -110,54 +113,5 @@ public class A_Camara extends ActionBarActivity implements CameraCallBack, Dialo
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-    }
-
-    @Override
-    public void onCroppedImage(Bitmap bmp) {
-        int x = bmp.getWidth() / 2;
-        int y = bmp.getHeight() / 2;
-        int w = bmp.getWidth() / 2;
-        int h = bmp.getHeight() / 2;
-
-        Log.e("TAMANIO", bmp.getWidth() + " - " + bmp.getHeight());
-        Log.e("CORDENADAS", x + " - " + y);
-        Log.e("MARGEN", w + " - " + h);
-
-        //Bitmap map = Bitmap.createBitmap(bmp, x, y, w, h);
-
-        ByteArrayOutputStream bo = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, bo);
-        byte[] byteArray = bo.toByteArray();
-
-        Bitmap b = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        Bitmap resizedBitmap = Bitmap.createScaledBitmap(b, 850, 850, false);
-
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), getString(R.string.app_name));
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                return;
-            }
-        }
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "GLUP_" + timeStamp + ".jpg");
-
-        try {
-            FileOutputStream stream = new FileOutputStream(mediaFile);
-            resizedBitmap.compress(Bitmap.CompressFormat.JPEG, PICTURE_QUALITY, stream);
-        } catch (IOException exception) {
-            Log.e(A_Camara.this.getClass().getName(), "IOException during saving bitmap");
-            return;
-        }
-
-        MediaScannerConnection.scanFile(this, new String[]{mediaFile.toString()}, new String[]{"image/jpeg"}, null);
-
-        Glup_Application glup_application = ((Glup_Application) getApplication());
-        Picasso.with(A_Camara.this).load(mediaFile).fit().skipMemoryCache().into(glup_application.getPreviewCurrent());
-        glup_application.getPreviewCurrent().setVisibility(View.VISIBLE);
-
-        glup_application.getOnTake().OnTake(mediaFile, mediaFile.toString());
-
-        finish();
     }
 }

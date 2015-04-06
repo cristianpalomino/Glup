@@ -3,12 +3,17 @@ package capr.com.glup;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -27,6 +32,7 @@ import com.mobsandgeeks.saripaar.Rule;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Required;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
@@ -318,17 +324,24 @@ public class Detalle extends ActionBarActivity implements Glup_Application.OnTak
     }
 
     @Override
-    public void OnTake(File file, String uri) {
+    public void OnTake(final File file, final String uri) {
         ImageView imageview = ((Glup_Application) getApplication()).getCurrentImageView();
-        if (imageview.equals(imagea)) {
-            Log.e("ONTAKE",uri + "  - A"+ " - " + file.getTotalSpace());
-            Picasso.with(this).load(new File(uri)).into(preview_a);
+        if (imageview.equals(imagea))
+        {
+            Log.e("ONTAKE", file.getAbsolutePath() + "  - B" + " - " + file.getTotalSpace());
+            Picasso.with(Detalle.this).load(file).fit().centerInside().into(preview_a);
             ((Glup_Application) getApplication()).getCurrent_uri().set(0, uri);
-        } else {
-            Log.e("ONTAKE",uri + "  - B" + " - " + file.getTotalSpace());
-            Picasso.with(this).load(new File(uri)).into(preview_b);
-            ((Glup_Application) getApplication()).getCurrent_uri().set(1, uri);
+
+            preview_a.setVisibility(View.VISIBLE);
         }
+        else {
+            Log.e("ONTAKE", file.getAbsolutePath() + "  - B" + " - " + file.getTotalSpace());
+            Picasso.with(Detalle.this).load(file).fit().centerInside().into(preview_b);
+            ((Glup_Application) getApplication()).getCurrent_uri().set(1, uri);
+
+            preview_b.setVisibility(View.VISIBLE);
+        }
+
     }
 
 }
