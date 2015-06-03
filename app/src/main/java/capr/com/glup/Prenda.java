@@ -60,6 +60,8 @@ public class Prenda extends Master implements View.OnClickListener {
         Name user
          */
         user.setText(new Session_Manager(this).getName());
+
+        prendac.setVisibility(View.GONE);
     }
 
     /**
@@ -75,7 +77,12 @@ public class Prenda extends Master implements View.OnClickListener {
             startActivity(intent);
             Prenda.this.finish();
             new Session_Manager(Prenda.this).cerrarSession();
-        }else{
+        }
+        else if(v.equals(prendac)){
+            Intent intent = new Intent(Prenda.this,Detalle.class);
+            startActivity(intent);
+        }
+        else{
             String value = ((Button)v).getText().toString();
             Dialog_Prenda dialog_prenda = new Dialog_Prenda(Prenda.this,getData().getModelos(value),Prenda.this);
             dialog_prenda.show();
