@@ -97,7 +97,7 @@ public class Cropper extends ActionBarActivity implements View.OnClickListener {
                 byte[] byteArray = bo.toByteArray();
 
                 Bitmap b = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                Bitmap resizedBitmap = Bitmap.createScaledBitmap(b, 200, 200, false);
+                Bitmap resizedBitmap = Bitmap.createScaledBitmap(b, 850, 850, false);
 
                 File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), getString(R.string.app_name));
                 if (!mediaStorageDir.exists()) {

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Glup.iml" filepath="$PROJECT_DIR$/Glup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GlupOld.iml" filepath="$PROJECT_DIR$/GlupOld.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
